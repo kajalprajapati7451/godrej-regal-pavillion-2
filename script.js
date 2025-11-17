@@ -1,4 +1,4 @@
-// Initialize AOS
+   // Initialize AOS
         AOS.init({
             duration: 1000,
             once: true,
@@ -35,6 +35,13 @@
                         top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
+                    
+                    // Close mobile menu when a link is clicked
+                    const navbarToggler = document.querySelector('.navbar-toggler');
+                    const navbarCollapse = document.querySelector('.navbar-collapse');
+                    if (navbarCollapse.classList.contains('show')) {
+                        navbarToggler.click();
+                    }
                     
                     // Update active nav link
                     document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {

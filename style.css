@@ -1,4 +1,4 @@
-  :root {
+:root {
             --gold: #D4AF37;
             --dark-gold: #B8860B;
             --light-gold: #F5E8B0;
@@ -66,15 +66,64 @@
             background-color: rgba(212, 175, 55, 0.15);
         }
         
+        /* Custom Hamburger Menu */
         .navbar-toggler {
             border: none;
             color: var(--gold);
             font-size: 1.3rem;
             padding: 5px 10px;
+            background: transparent;
+            width: 40px;
+            height: 40px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
         
         .navbar-toggler:focus {
             box-shadow: none;
+            outline: none;
+        }
+        
+        .navbar-toggler .hamburger-line {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background-color: var(--gold);
+            margin: 3px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-toggler[aria-expanded="true"] .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .navbar-toggler[aria-expanded="true"] .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .navbar-toggler[aria-expanded="true"] .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+        
+        /* Responsive Navbar */
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                background-color: rgba(17, 17, 17, 0.98);
+                padding: 20px;
+                border-radius: 10px;
+                margin-top: 15px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            }
+            
+            .navbar-nav .nav-link {
+                margin: 5px 0;
+                padding: 10px 15px !important;
+                text-align: center;
+                border-radius: 8px;
+            }
         }
         
         /* Hero Section - More Compact */
@@ -882,48 +931,4 @@
             .map-container {
                 height: 300px;
             }
-        }
-        /* Hero Section - Enhanced */
-        #s1 {
-            position: relative;
-            height: 85vh;
-            min-height: 500px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--white);
-        }
-        
-        .video-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-            animation: slowZoom 30s infinite alternate;
-        }
-        
-        @keyframes slowZoom {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.1); }
-        }
-        
-        .video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(ellipse at center, rgba(17, 17, 17, 0.4) 0%, rgba(17, 17, 17, 0.8) 100%);
-            z-index: -1;
-            animation: pulseOverlay 8s ease-in-out infinite;
-        }
-        
-        @keyframes pulseOverlay {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.9; }
         }
